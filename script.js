@@ -1,57 +1,23 @@
-// بيانات الباقات
-const packages = [
-    { coins: 1000, price: 550 },
-    { coins: 2000, price: 1000 },
-    { coins: 5000, price: 2300 },
-    { coins: 10000, price: 4200 },
-    { coins: 20000, price: 8000 },
-];
-
-// عرض الباقات
-const container = document.getElementById('cards-container');
-
-packages.forEach(pkg => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-        <h3>💰 ${pkg.coins} كوينز</h3>
-        <div class="price">${pkg.price} ج.م</div>
-        <button class="btn" onclick="openForm(${pkg.coins}, ${pkg.price})">اشحن الآن</button>
-    `;
-    container.appendChild(card);
-});
-
-function openForm(coins, price) {
-    document.getElementById('order-form').style.display = 'block';
-    document.getElementById('coins').value = coins;
-    document.getElementById('price').value = price + ' ج.م';
-    window.scrollTo({ top: document.getElementById('order-form').offsetTop - 50, behavior: 'smooth' });
-}
-
-function closeForm() {
-    document.getElementById('order-form').style.display = 'none';
-}
+// جلب الطلبات من Local Storage
+let requests = JSON.parse(localStorage.getItem('tiktokRequests')) || [];
 
 // التعامل مع إرسال النموذج
-document.getElementById('orderForm').addEventListener('submit', function(e) {
+document.getElementById('requestForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const phone = document.getElementById('phone').value;
-    const coins = document.getElementById('coins').value;
-    const price = document.getElementById('price').value;
-    const payment = document.getElementById('payment').value;
-    const receipt = document.getElementById('receipt').files[0];
+    const username = document.getElementById('username').value.trim();
+    const phone = document.getElementById('phone').value.trim();
 
-    if (!username || !phone || !payment || !receipt) {
-        alert('❌ من فضلك املأ جميع البيانات المطلوبة.');
+    if (!username || !phone) {
+        alert('❌ من فضلك املأ جميع البيانات.');
         return;
     }
 
-    // عرض رسالة نجاح
-    alert('✅ تم استلام طلبك بنجاح! هنتواصل معاك خلال 24 ساعة لتأكيد الشحن.');
+    // حفظ الطلب
+    requests.push({ username, phone, date: new Date().toLocaleString() });
+    localStorage.setItem('tiktokRequests', JSON.stringify(requests));
 
-    // إغلاق النموذج وتفريغه
-    closeForm();
-    document.getElementById('orderForm').reset();
+    // عرض رسالة نجاح
+    document.getElementById('successMessage').style.display = 'block';
+    document.getElementById('requestForm').reset();
 });

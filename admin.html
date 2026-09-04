@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة التحكم - طلبات الكوينز</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .admin-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .admin-container h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #1a1a2e;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            background: #e94560;
+        }
+
+        .no-requests {
+            text-align: center;
+            color: #888;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h2>👑 طلبات الكوينز</h2>
+        <div id="requestsTable"></div>
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back">🔙 العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <script>
+        function loadRequests() {
+            const requests = JSON.parse(localStorage.getItem('tiktokRequests')) || [];
+            const container = document.getElementById('requestsTable');
+
+            if (requests.length === 0) {
+                container.innerHTML = '<p class="no-requests">❌ لا توجد طلبات حتى الآن.</p>';
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المستخدم على تيك توك</th>
+                            <th>رقم الهاتف</th>
+                            <th>التاريخ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            requests.forEach((req, index) => {
+                html += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td><strong>${req.username}</strong></td>
+                        <td>${req.phone}</td>
+                        <td>${req.date}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        window.onload = loadRequests;
+    </script>
+</body>
+</html>
