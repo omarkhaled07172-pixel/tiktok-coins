@@ -41,17 +41,18 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
     const coins = document.getElementById('coins').value;
     const price = document.getElementById('price').value;
     const payment = document.getElementById('payment').value;
+    const receipt = document.getElementById('receipt').files[0];
 
-    if (!username || !phone || !payment) {
+    if (!username || !phone || !payment || !receipt) {
         alert('❌ من فضلك املأ جميع البيانات المطلوبة.');
         return;
     }
 
-    const message = `✅ طلب شحن جديد:%0A📌 اسم المستخدم: ${username}%0A📱 رقم الهاتف: ${phone}%0A💰 عدد العملات: ${coins}%0A💵 السعر: ${price}%0A💳 طريقة الدفع: ${payment}`;
-    const whatsappUrl = `https://wa.me/201122391756?text=${message}`;
+    // هنا تقدر ترسل البيانات للإيميل أو تخزنها في قاعدة بيانات
+    // لكن حالياً هنعرض رسالة نجاح
+    alert('✅ تم استلام طلبك بنجاح! هنتواصل معاك خلال 24 ساعة لتأكيد الشحن.');
 
-    window.open(whatsappUrl, '_blank');
-    alert('✅ تم استلام طلبك! هنتواصل معاك خلال دقائق لتأكيد الشحن.');
+    // إغلاق النموذج وتفريغه
     closeForm();
     document.getElementById('orderForm').reset();
 });

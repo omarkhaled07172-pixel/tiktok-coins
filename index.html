@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
     <header>
         <div class="container">
             <h1>💰 شحن عملات تيك توك</h1>
@@ -21,7 +20,6 @@
         </div>
     </header>
 
-    <!-- الباقات -->
     <section class="pricing">
         <div class="container">
             <h2>اختر الباقة المناسبة لك</h2>
@@ -29,24 +27,19 @@
         </div>
     </section>
 
-    <!-- طرق الدفع -->
     <section class="payment-methods">
         <div class="container">
             <h2>💳 طرق الدفع المتاحة</h2>
             <div class="methods-grid">
                 <div class="method">📱 فودافون كاش: 01092063005</div>
-                <div class="method">🏦 تحويل بنكي (مصر)</div>
-                <div class="method">💳 إنستا باي</div>
-                <div class="method">🌐 باي بال (قريبًا)</div>
             </div>
         </div>
     </section>
 
-    <!-- نموذج الطلب -->
     <section class="order-form" id="order-form" style="display: none;">
         <div class="container">
             <h2>📋 تأكيد الطلب</h2>
-            <form id="orderForm">
+            <form id="orderForm" enctype="multipart/form-data">
                 <label for="username">اسم المستخدم على تيك توك</label>
                 <input type="text" id="username" placeholder="@user123" required />
 
@@ -61,11 +54,11 @@
 
                 <label for="payment">طريقة الدفع</label>
                 <select id="payment" required>
-                    <option value="">اختر طريقة الدفع</option>
                     <option value="فودافون كاش">📱 فودافون كاش</option>
-                    <option value="تحويل بنكي">🏦 تحويل بنكي</option>
-                    <option value="إنستا باي">💳 إنستا باي</option>
                 </select>
+
+                <label for="receipt">📎 صورة إيصال التحويل</label>
+                <input type="file" id="receipt" accept="image/*" required />
 
                 <button type="submit">✅ تأكيد الشراء</button>
                 <button type="button" onclick="closeForm()">❌ إلغاء</button>
@@ -73,7 +66,6 @@
         </div>
     </section>
 
-    <!-- تعليقات العملاء -->
     <section class="testimonials">
         <div class="container">
             <h2>💬 آراء العملاء</h2>
@@ -112,7 +104,6 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer>
         <div class="container">
             <p>© 2026 جميع الحقوق محفوظة – خدمة شحن عملات تيك توك</p>
