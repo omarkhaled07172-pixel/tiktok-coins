@@ -9,55 +9,137 @@ body {
     background: #f5f5f5;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 40px 20px;
 }
 
-.login-container {
+.container {
+    max-width: 700px;
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
-}
-
-.login-box {
     background: #fff;
-    padding: 40px 30px;
-    border-radius: 16px;
+    padding: 30px;
+    border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-    text-align: center;
 }
 
-.logo h1 {
-    font-size: 32px;
+.header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+    font-size: 28px;
     color: #1a1a2e;
 }
 
-.logo p {
+.header p {
     color: #e94560;
     font-weight: 600;
-    margin-top: 5px;
 }
 
-.login-box label {
-    display: block;
-    text-align: left;
+.rules {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.rules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rules ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.coins-selection {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.coins-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.coins-options button {
+    padding: 12px 25px;
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
     font-weight: 600;
-    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.login-box input {
-    width: 100%;
+.coins-options button:hover {
+    background: #e94560;
+}
+
+.user-input {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.user-input input {
+    width: 80%;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 16px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
-.login-box button {
+.user-input button {
+    margin-top: 15px;
+    padding: 14px 40px;
+    background: #e94560;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.progress {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.progress-bar {
     width: 100%;
-    padding: 14px;
-    margin-top: 25px;
+    height: 20px;
+    background: #eee;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: linear-gradient(90deg, #e94560, #1a1a2e);
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.final-step {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #e8f5e9;
+    border-radius: 16px;
+}
+
+.final-step button {
+    padding: 14px 40px;
     background: #1a1a2e;
     color: #fff;
     border: none;
@@ -65,17 +147,16 @@ body {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-.login-box button:hover {
-    background: #e94560;
-}
-
-footer {
-    background: #1a1a2e;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+.testimonials {
     margin-top: 40px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.testimonial {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
 }

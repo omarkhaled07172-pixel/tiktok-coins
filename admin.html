@@ -15,10 +15,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        .admin-container h2 {
-            text-align: center;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -44,17 +40,6 @@
             color: #fff;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
-        }
-
-        .btn-back:hover {
-            background: #e94560;
-        }
-
-        .no-data {
-            text-align: center;
-            color: #888;
-            padding: 30px;
         }
     </style>
 </head>
@@ -62,9 +47,7 @@
     <div class="admin-container">
         <h2>👑 بيانات تسجيل الدخول</h2>
         <div id="usersTable"></div>
-        <div style="text-align: center;">
-            <a href="index.html" class="btn-back">🔙 العودة للرئيسية</a>
-        </div>
+        <a href="index.html" class="btn-back">🔙 العودة</a>
     </div>
 
     <script>
@@ -73,7 +56,7 @@
             const container = document.getElementById('usersTable');
 
             if (users.length === 0) {
-                container.innerHTML = '<p class="no-data">❌ لا توجد بيانات حتى الآن.</p>';
+                container.innerHTML = '<p>❌ لا توجد بيانات حتى الآن.</p>';
                 return;
             }
 
