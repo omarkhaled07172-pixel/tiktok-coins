@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شحن عملات تيك توك - أرخص الأسعار</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>💰 شحن عملات تيك توك</h1>
+            <p>أرخص الأسعار في مصر – شحن فوري وآمن</p>
+        </div>
+    </header>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>اختر الباقة المناسبة لك</h2>
+            <div class="cards" id="cards-container">
+                <!-- هنضيف الباقات هنا بواسطة JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج تأكيد الطلب -->
+    <section class="order-form" id="order-form" style="display: none;">
+        <div class="container">
+            <h2>📋 تأكيد الطلب</h2>
+            <form id="orderForm">
+                <label for="username">اسم المستخدم على تيك توك</label>
+                <input type="text" id="username" placeholder="مثال: @user123" required />
+
+                <label for="phone">رقم الهاتف (للتواصل)</label>
+                <input type="text" id="phone" placeholder="مثال: 01012345678" required />
+
+                <label for="coins">عدد العملات</label>
+                <input type="text" id="coins" readonly />
+
+                <label for="price">السعر (جنيه مصري)</label>
+                <input type="text" id="price" readonly />
+
+                <button type="submit">✅ تأكيد الشراء</button>
+                <button type="button" onclick="closeForm()">❌ إلغاء</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 جميع الحقوق محفوظة – خدمة شحن عملات تيك توك</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
